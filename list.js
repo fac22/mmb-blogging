@@ -1,7 +1,7 @@
 const objListMessages = {
-  hey: { text: "hey" },
-  hello: { text: "hello" },
-  new: { text: "new post message" },
+  //   hey: { text: "hey" },
+  //   hello: { text: "hello" },
+  //   "new message": { text: "new message" },
 };
 
 // module.exports = { arrListMessages, objListMessages };
