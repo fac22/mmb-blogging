@@ -6,14 +6,15 @@ const messageList = require("./list");
 const server = express();
 
 ///this is the home page
+let items = "";
 
-server.get("/", (request, response) => {
+server.get("/message", (request, response) => {
   // const search = request.query.search || "";
-  let items = "";
+
   for (const message of messageList) {
     // const match = dog.name.toLowerCase().includes(search.toLowerCase());
     // if we don't have a search submission we show all dogs
-    items += `${message}`;
+    items += `<li>${message}</li>`;
   }
 
   const html = `<!DOCTYPE html>
@@ -25,7 +26,7 @@ server.get("/", (request, response) => {
     <title>Best Blogging</title>
 </head>
 <body>
-<h1> message of the day ${items} </h1>
+<h1> message of the day </h1><ul>${items}</ul> 
     
 </body>
 </html>`;
@@ -63,7 +64,7 @@ server.get("/posting", (request, response) => {
 });
 
 //// see the message of the post
-server.get("/message", (request, response) => {
+server.get("/", (request, response) => {
   const html = `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -73,7 +74,9 @@ server.get("/message", (request, response) => {
         <title>Message</title>
     </head>
     <body>
-    <h1> message page </h1>
+
+    <h1>Main page</h1>
+   
         
     </body>
     </html>`;
@@ -85,7 +88,15 @@ server.get("/message", (request, response) => {
 
 const bodyParser = express.urlencoded({ extended: false });
 server.post("/posting", bodyParser, (request, response) => {
-  const message = request.body;
+  const newMessage = request.body.text;
+
+  console.log(newMessage);
+
+  //   const name = newDog.name.toLowerCase();
+  //   dogs[name] = newDog;
+
+  messageList.push(newMessage);
+  console.log(messageList);
 
   // normally you'd use the body to save a new user here
   response.redirect("/message");

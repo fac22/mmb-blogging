@@ -1,3 +1,3 @@
-const listMessages = ["hey"];
+const listMessages = ["hey", "hello", "new post message"];
 
 module.exports = listMessages;
