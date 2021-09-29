@@ -6,15 +6,22 @@ const messageList = require("./list");
 const server = express();
 
 ///this is the home page
-let items = "";
 
 server.get("/message", (request, response) => {
-  // const search = request.query.search || "";
+  let items = "";
+  for (const message of Object.values(messageList)) {
+    // items += `<li>${message}</li>`;
+    console.log(message.text);
 
-  for (const message of messageList) {
-    // const match = dog.name.toLowerCase().includes(search.toLowerCase());
-    // if we don't have a search submission we show all dogs
-    items += `<li>${message}</li>`;
+    items += `
+        <li></li>
+          <span>${message.text}</span>
+          <form action="/delete-message" method="POST" style="display: inline;">
+            <button name="name" value="${message.text}" aria-label="Delete ${message.text}">
+              &times;
+            </button>
+          </form>
+        </li>`;
   }
 
   const html = `<!DOCTYPE html>
@@ -31,7 +38,7 @@ server.get("/message", (request, response) => {
 </body>
 </html>`;
 
-  response.send(html);
+  response.end(html);
 });
 
 ///// page for posting message
@@ -60,7 +67,7 @@ server.get("/posting", (request, response) => {
     </body>
     </html>`;
 
-  response.send(html);
+  response.end(html);
 });
 
 //// see the message of the post
@@ -81,24 +88,41 @@ server.get("/", (request, response) => {
     </body>
     </html>`;
 
-  response.send(html);
+  response.end(html);
 });
 
 ///posting function
 
 const bodyParser = express.urlencoded({ extended: false });
 server.post("/posting", bodyParser, (request, response) => {
-  const newMessage = request.body.text;
+  const newDog = request.body;
+  const name = newDog.text.toLowerCase();
+  messageList[name] = newDog;
+  //   const newMessage = request.body;
 
-  console.log(newMessage);
+  //   // const label = /*username */;
+  //   // const name = newDog.name.toLowerCase();
+  //   messageList[newMessage] = newMessage;
 
-  //   const name = newDog.name.toLowerCase();
-  //   dogs[name] = newDog;
+  //   //   messageList[label] = newMessage;
 
-  messageList.push(newMessage);
-  console.log(messageList);
+  //   console.log(messageList);
 
   // normally you'd use the body to save a new user here
+  response.redirect("/message");
+});
+
+server.post("/delete-message", bodyParser, (request, response) => {
+  const deleteMessage = request.body.text;
+  let x = "hey";
+
+  console.log(deleteMessage + " delete post");
+  //   if (messageList.includes(deleteMessage)) {
+  messageList.splice(messageList.includes(deleteMessage));
+  console.log(messageList);
+  //   }
+  console.log(messageList);
+
   response.redirect("/message");
 });
 

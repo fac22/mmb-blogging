@@ -1,3 +1,9 @@
-const listMessages = ["hey", "hello", "new post message"];
+const objListMessages = {
+  hey: { text: "hey" },
+  hello: { text: "hello" },
+  new: { text: "new post message" },
+};
 
-module.exports = listMessages;
+// module.exports = { arrListMessages, objListMessages };
+module.exports = objListMessages;
+//module.exports = arrListMessages;
