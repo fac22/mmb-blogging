@@ -1,0 +1,13 @@
+.message {
+  background: cornsilk;
+  color: crimson;
+  display: flex;
+}
+
+ul {
+  list-style-type: none;
+}
+
+span {
+  font-size: 2rem;
+}
