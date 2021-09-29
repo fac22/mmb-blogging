@@ -1,4 +1,4 @@
-# Mistakes file
+# Mistakes and learnings
 
 ## Issues
 
@@ -59,3 +59,47 @@ server.post("/posting", bodyParser, (request, response) => {
 ```
 
 - Big question: do we set up the list as an object or an array?
+
+
+ ### How do we style without an index.html file?
+
+We could create style tags within html in the javascript file, but that wouldn't be efficient. 
+
+The answer is through static files in express. 
+
+We create a new directory `public` with a folder called `css` in which we store our `style.css` file.
+
+Here's our code:
+
+```
+
+const staticHandler = express.static("public"); <- Have to create a static handler to access `public`
+
+const server = express();
+
+server.use(staticHandler);
+///this is the home page
+server.get("/", (request, response) => {
+  const html = `
+    <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+        <link rel="stylesheet" type="text/css" href="./style.css"> <- Don't need to include the `public` directory
+
+        <title>Message</title>
+      </head>
+      <body>
+        <h1>Main page</h1>
+        <p><a href="http://localhost:4444/posting">Message Board</a></p>
+        
+
+      </body>
+      </html>
+    `;
+
+```
+---

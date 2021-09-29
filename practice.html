@@ -4,10 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./public/style.css" />
     <title>Best Blogging</title>
   </head>
   <body>
-    <form action="POST">
+    <!-- <form action="POST">
       <label for="text">Post message</label>
       <input
         type="text"
@@ -17,6 +18,50 @@
       />
       <label for="submit"></label>
       <button id="submit">submit</button>
+    </form> -->
+    <form method="POST">
+      <!-- // Author -->
+      <label for="new-author">User name</label>
+      <input
+        type="text"
+        id="new-author"
+        name="new-author"
+        placeholder="Choose your unique user name"
+      />
+
+      <!-- Title -->
+      <label for="new-title">Title</label>
+      <input
+        type="text"
+        id="new-title"
+        name="new-title"
+        placeholder="Your post title"
+      />
+
+      <!-- New Message -->
+      <label for="new-txt">Message</label>
+      <textarea
+        type="text"
+        id="new-txt"
+        name="new-txt"
+        placeholder="What's on your mind?"
+      ></textarea>
+
+      <!-- OLD Message -->
+      <label for="text">Message</label>
+      <input
+        type="text"
+        id="text"
+        name="text"
+        placeholder="Please type your message"
+      />
+
+      <!-- Send button -->
+      <button id="new-send" name="new-send">Send</button>
     </form>
+
+    <section class="section1" id="section1"></section>
+
+    <a href="http://localhost:4444/posting">Message Board</a>
   </body>
 </html>
