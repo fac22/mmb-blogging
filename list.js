@@ -1,7 +1,10 @@
 const objListMessages = {
-  hey: { text: "hey" },
-  //   hello: { text: "hello" },
-  //   "new message": { text: "new message" },
+  //template
+  title: {
+    author: "Author long very long",
+    title: "Title long very long long very long",
+    text: "Message long very long long very long",
+  },
 };
 
 // module.exports = { arrListMessages, objListMessages };

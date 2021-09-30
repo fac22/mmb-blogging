@@ -18,6 +18,7 @@ server.get("/", (request, response) => {
        
         <link rel="stylesheet" type="text/css" href="./style.css">
         <link rel="stylesheet" type="text/css" href="./main.css">
+        <link rel="icon" href="./images/to_do_list_icon-icons.com_76974.ico" type="image/ico">
 
         <title>Home</title>
       </head>
@@ -28,7 +29,7 @@ server.get("/", (request, response) => {
       <h1>Welcome to mmB Blogging</h1>
 
       <p>Submit your thoughts <b>here</b></p>
-
+      
       <section class="section1" id="section1">
       
       
@@ -54,17 +55,21 @@ server.get("/message", (request, response) => {
     // console.log(message.text);
 
     items += `
-      <li>
+      <div  class="taskMessage">
+        <div>
+        <span>${message.title}</span>
+        <span>${message.author}</span>
         <span>${message.text}</span>
+        </div>
         <form action="/delete-message" method="POST" style="display: inline;">
         
           <button name="name" value="${message.text}" aria-label="Delete ${message.text}">
-          <img src="https://img.icons8.com/cute-clipart/64/000000/x.png"/>
+          <img src="https://img.icons8.com/office/16/000000/delete-sign.png">
 
             <!-- &times; -->
           </button>
         </form>
-      </li>
+      </div>
     `;
   }
 
@@ -84,7 +89,7 @@ server.get("/message", (request, response) => {
       <h1> message of the day </h1>
       
      <div class="message">
-     <ul>${items}</ul> 
+     ${items}
      </div>
       
     </body>
@@ -103,38 +108,38 @@ server.get("/posting", (request, response) => {
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="./Icon:image/to_do_list_icon-icons.com_76974.ico" type="image/ico">
         <link rel="stylesheet" type="text/css" href="./style.css">
         <link rel="stylesheet" type="text/css" href="./posting.css">
         <title>Posting</title>
       </head>
       <body>
-        <form method="POST">
+        <form method="POST" class="stack-md center">
           <!-- // Author -->
           <label for="new-author">User name</label>
-          <input type="text" id="new-author" name="new-author" placeholder="Not ready ;-) Your name">
+          <input type="text" id="new-author" name="newAuthor" placeholder="Not ready ;-) Your name" required>
 
           <!-- Title -->
           <label for="new-title">Title</label>
-          <input type="text" id="new-title" name="new-title" placeholder="Not ready ;-) Your post title">
+          <input type="text" id="new-title" name="newTitle" placeholder="Not ready ;-) Your post title" required>
 
           <!-- New Message -->
           <label for="new-txt">Message</label>
           <textarea
             type="text"
-            id="new-txt"
-            name="new-txt"
+            id="new-xt"
+            name="newTxt"
             placeholder="What's on your mind?"
-          >Not ready ;-)
-          </textarea>
+          required></textarea>
 
           <!--Old Message-->
-          <label for="text">Post message</label>
+          <!--<label for="text">Post message</label>
           <input
             type="text"
             id="text"
             name="text"
-            placeholder=" please type your message"
-          />
+            placeholder=" please type your message">
+          -->
 
           <!--Send Button-->
           <button id="new-send" name="new-send">Send</button>
@@ -151,10 +156,28 @@ server.get("/posting", (request, response) => {
 
 const bodyParser = express.urlencoded({ extended: false });
 server.post("/posting", bodyParser, (request, response) => {
-  const newMessage = request.body;
-  const name = newMessage.text;
-  messageList[name] = newMessage;
+  // Access user-submission
+  const newSubmission = request.body;
 
+  // Build obj for this post
+  const newAuthor = newSubmission.newAuthor;
+  const newTitle = newSubmission.newTitle;
+  const newMessage = newSubmission.newTxt;
+
+  const newObj = {
+    author: newAuthor,
+    title: newTitle,
+    text: newMessage,
+  };
+  console.log(newObj);
+
+  // add post-obj to our message-list
+  // const label = newTitle;
+  // messageList[label] = newSubmission;
+
+  messageList[newTitle] = newObj;
+
+  // redirect
   response.redirect("/message");
 });
 

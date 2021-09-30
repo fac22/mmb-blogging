@@ -2,7 +2,7 @@
 
 ## Issues
 
- - Everytime we refreshed the page on the page we display our messages, it would repeat. We found that the problem was a scoping issue. 
+ - Every time we refreshed the page on the page we display our messages, it would repeat. We found that the problem was a scoping issue. 
 
 ```
 // Scoping: declare fresh list outside or inside server.get()
@@ -103,3 +103,49 @@ server.get("/", (request, response) => {
 
 ```
 ---
+
+- We also wanted to add more details to our messages. Things like user name and title of the message.
+
+Below what we had prev
+```
+<!-- OLD Message -->
+      <label for="text">Message</label>
+      <input
+        type="text"
+        id="text"
+        name="text"
+        placeholder="Please type your message"
+      />
+
+```
+
+```
+<form method="POST">
+      <!-- // Author -->
+      <label for="new-author">User name</label>
+      <input
+        type="text"
+        id="new-author"
+        name="new-author"
+        placeholder="Choose your unique user name"
+      />
+
+      <!-- Title -->
+      <label for="new-title">Title</label>
+      <input
+        type="text"
+        id="new-title"
+        name="new-title"
+        placeholder="Your post title"
+      />
+
+      <!-- New Message -->
+      <label for="new-txt">Message</label>
+      <textarea
+        type="text"
+        id="new-txt"
+        name="new-txt"
+        placeholder="What's on your mind?"
+      ></textarea>
+
+```
