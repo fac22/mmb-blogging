@@ -28,7 +28,9 @@ server.get("/", (request, response) => {
       <body class = "center center-text" >
       <h1>Welcome to mmB Blogging</h1>
 
-      <p>Submit your thoughts <b>here</b></p>
+      <p><button> <a href="http://localhost:4444/posting">Write</a> </button> a post</p>
+
+      <p>Read all blog <button> <a href="http://localhost:4444/message">posts</a> </button></p>
       
       <section class="section1" id="section1">
       
@@ -52,6 +54,7 @@ server.get("/message", (request, response) => {
   let items = "";
   for (const message of Object.values(messageList)) {
     // items += `<li>${message}</li>`;
+
     // console.log(message.text);
 
     items += `
@@ -61,9 +64,9 @@ server.get("/message", (request, response) => {
         <span>Author: ${message.author}</span>
         <span>${message.text}</span>
         </div>
-        <form action="/delete-message" method="POST" style="display: inline;">
+        <form action="/delete-message" method="POST" style="display: inline;" id="button-form">
         
-          <button name="name" value="${message.title}" aria-label="Delete ${message.title}">
+          <button name="name" value="${message.title}" aria-label="Delete ${message.title}" >
             <img src="https://img.icons8.com/office/16/000000/delete-sign.png">
 
             <!-- &times; -->
@@ -114,7 +117,7 @@ server.get("/posting", (request, response) => {
         <title>Posting</title>
       </head>
       <body>
-        <form method="POST" class="stack-md center width-sm justify-space-between">
+        <form method="POST" class="stack-md center width-sm justify-space-between" id="posting-form">
           <!-- // Author -->
           <label for="new-author">User name</label>
           <input type="text" id="new-author" name="newAuthor" placeholder="Your name" required>

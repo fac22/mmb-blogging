@@ -4,7 +4,7 @@
 
  - Every time we refreshed the page on the page we display our messages, it would repeat. We found that the problem was a scoping issue. 
 
-```
+```javascript
 // Scoping: declare fresh list outside or inside server.get()
 
 // <- used to be here
@@ -23,7 +23,7 @@ server.get("/message", (request, response) => {
 
 - Another issue we had was deleting the correct message. We got the correct item in the list every time but the item wasn't deleting on the page.
 
-```
+```javascript
 
 server.post("/delete-message", bodyParser, (request, response) => {
   const textToDelete = request.body.name;
@@ -35,7 +35,7 @@ server.post("/delete-message", bodyParser, (request, response) => {
 ```
 
 - Another issue was removing messages with more than one word. 
-```
+```javascript
 
 const objListMessages = {
   hey: { text: "hey" },
@@ -50,7 +50,7 @@ const objListMessages = {
 
 - We had another issue accessing the object to add a new value
 
-```
+```javascript
 const bodyParser = express.urlencoded({ extended: false });
 server.post("/posting", bodyParser, (request, response) => {
   const newMessage = request.body;
@@ -71,7 +71,7 @@ We create a new directory `public` with a folder called `css` in which we store 
 
 Here's our code:
 
-```
+```javascript
 
 const staticHandler = express.static("public"); <- Have to create a static handler to access `public`
 
@@ -107,7 +107,7 @@ server.get("/", (request, response) => {
 - We also wanted to add more details to our messages. Things like user name and title of the message.
 
 Below what we had prev
-```
+```html
 <!-- OLD Message -->
       <label for="text">Message</label>
       <input
@@ -119,7 +119,7 @@ Below what we had prev
 
 ```
 
-```
+```html
 <form method="POST">
       <!-- // Author -->
       <label for="new-author">User name</label>
@@ -149,3 +149,32 @@ Below what we had prev
       ></textarea>
 
 ```
+
+### Testing
+- Cypress doesn't work, but using VSCode LiveShare lets non-Mac users write the tests, their Mac-partner can then run it in Cypress
+- Testing a **form**: 
+  - If the HTML has fields with `<required>`
+  - In `test.js`, a test if correct redirect address won't work for an empty form, need to fill in the fields in the test
+  ```js
+    it("Can write & send a post", () => {
+      cy.visit("http://localhost:4444/posting");
+      cy.get("#posting-form").find("input[name='newAuthor']").type("MO_MI_BA");
+      cy.get("#posting-form").find("input[name='newTitle']").type("MO_MI_BA");
+      cy.get("#posting-form").find("textarea[name='newTxt']").type("MO_MI_BA");
+      cy.contains("Send").click();
+      cy.url().should("include", "/message");
+    });
+  ```
+
+  ### cypress issues
+
+The Chrome Browser has a safety-feature. Then Cypress tests redirecting to different URLs won't work.
+Fix it in `cypress.json`:
+
+```json
+  {
+    "chromeWebSecurity": false
+  }
+```
+
+
