@@ -178,3 +178,8 @@ Fix it in `cypress.json`:
 ```
 
 
+
+![Cypress problems](./public/images/cypress1.png)
+
+
+![Cypress problems](./public/images/cypress2.png)
