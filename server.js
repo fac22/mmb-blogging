@@ -57,8 +57,8 @@ server.get("/message", (request, response) => {
     items += `
       <div  class="taskMessage">
         <div>
-        <span>${message.title}</span>
-        <span>${message.author}</span>
+        <span>Title: ${message.title}</span>
+        <span>Author: ${message.author}</span>
         <span>${message.text}</span>
         </div>
         <form action="/delete-message" method="POST" style="display: inline;">

@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Cabin:wght@500&family=Open+Sans&family=Raleway&family=Roboto&family=Source+Sans+Pro&display=swap");
 
+* {
+  box-sizing: border-box;
+}
+
 .center-text {
   text-align: center;
 }
