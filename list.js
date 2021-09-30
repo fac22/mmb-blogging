@@ -1,8 +1,8 @@
 const objListMessages = {
   //template
-  title: {
+  title1: {
     author: "Author long very long",
-    title: "Title long very long long very long",
+    title: "title1",
     text: "Message long very long long very long",
   },
 };

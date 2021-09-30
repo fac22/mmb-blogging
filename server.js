@@ -63,8 +63,8 @@ server.get("/message", (request, response) => {
         </div>
         <form action="/delete-message" method="POST" style="display: inline;">
         
-          <button name="name" value="${message.text}" aria-label="Delete ${message.text}">
-          <img src="https://img.icons8.com/office/16/000000/delete-sign.png">
+          <button name="name" value="${message.title}" aria-label="Delete ${message.title}">
+            <img src="https://img.icons8.com/office/16/000000/delete-sign.png">
 
             <!-- &times; -->
           </button>
@@ -114,23 +114,23 @@ server.get("/posting", (request, response) => {
         <title>Posting</title>
       </head>
       <body>
-        <form method="POST" class="stack-md center">
+        <form method="POST" class="stack-md center width-sm justify-space-between">
           <!-- // Author -->
           <label for="new-author">User name</label>
-          <input type="text" id="new-author" name="newAuthor" placeholder="Not ready ;-) Your name" required>
+          <input type="text" id="new-author" name="newAuthor" placeholder="Your name" required>
 
           <!-- Title -->
           <label for="new-title">Title</label>
-          <input type="text" id="new-title" name="newTitle" placeholder="Not ready ;-) Your post title" required>
+          <input type="text" id="new-title" name="newTitle" placeholder="Your post title" required>
 
           <!-- New Message -->
           <label for="new-txt">Message</label>
           <textarea
-            type="text"
             id="new-xt"
             name="newTxt"
             placeholder="What's on your mind?"
-          required></textarea>
+          required>
+          </textarea>
 
           <!--Old Message-->
           <!--<label for="text">Post message</label>
@@ -142,7 +142,7 @@ server.get("/posting", (request, response) => {
           -->
 
           <!--Send Button-->
-          <button id="new-send" name="new-send">Send</button>
+          <button id="new-send" name="new-send" aria-label="Send post">Send</button>
 
         </form>
       </body>
@@ -182,8 +182,11 @@ server.post("/posting", bodyParser, (request, response) => {
 });
 
 server.post("/delete-message", bodyParser, (request, response) => {
+  //we are taking button -> name/value -> get the ${message.title}
   const textToDelete = request.body.name;
-  // console.log(textToDelete);
+  console.log(textToDelete);
+  // console.log(typeof textToDelete);
+
   delete messageList[textToDelete];
 
   response.redirect("/message");

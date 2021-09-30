@@ -4,3 +4,7 @@ body {
 label {
   font-family: "Open Sans";
 }
+form {
+  display: flex;
+  flex-direction: column;
+}
