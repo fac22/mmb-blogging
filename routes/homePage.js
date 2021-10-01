@@ -21,9 +21,9 @@ function get(request, response) {
         <body class = "center center-text" >
         <h1>Welcome to mmB Blogging</h1>
   
-        <p><button> <a href="http://localhost:4444/posting">Write</a> </button> a post</p>
+        <p><button> <a href="https://mmb-blog.herokuapp.com/posting">Write</a> </button> a post</p>
   
-        <p>Read all blog <button> <a href="http://localhost:4444/message">posts</a> </button></p>
+        <p>Read all blog <button> <a href="https://mmb-blog.herokuapp.com/message">posts</a> </button></p>
         
         <section class="section1" id="section1">
         
