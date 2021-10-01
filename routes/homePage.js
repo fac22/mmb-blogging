@@ -21,12 +21,12 @@ function get(request, response) {
         <body class = "center center-text" >
         <h1>Welcome to mmB Blogging</h1>
   
+        
+        
+        <section >
         <p><button> <a href="https://mmb-blog.herokuapp.com/posting">Write</a> </button> a post</p>
   
         <p>Read all blog <button> <a href="https://mmb-blog.herokuapp.com/message">posts</a> </button></p>
-        
-        <section class="section1" id="section1">
-        
         
         </section>
         

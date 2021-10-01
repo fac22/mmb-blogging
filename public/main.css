@@ -8,3 +8,9 @@ body {
 h1 {
   font-family: "Cabin", "sans-serif";
 }
+section {
+  display: flex;
+  flex-direction: row;
+  /* background: cyan; */
+  justify-content: space-evenly;
+}
