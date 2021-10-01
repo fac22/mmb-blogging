@@ -19,7 +19,7 @@ server.get("/posting", postingPage.get);
 server.post("/posting", bodyParser, postingPage.post);
 server.post("/delete-message", bodyParser, deletePost.post);
 
-const PORT = 4444;
+const PORT = process.env.PORT || 4444;
 
 server.listen(PORT, () => console.log(`http://localhost:${PORT}`));
 
