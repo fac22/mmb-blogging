@@ -192,3 +192,5 @@ Fix it in `cypress.json`:
  - Closes **#7** & **#19** - fixed mobile responsiveness and overlapping
 
  - Closes **#13** - made an 100-character limit on messages
+
+ - Closes **#11** - created a link on the message board to make new posts
