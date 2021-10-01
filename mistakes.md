@@ -187,6 +187,8 @@ Fix it in `cypress.json`:
 ## Fixing issues
 
  - Closes **#9** & **#15** - deployed to Heroku!
- - **Closes #20**  - fixed the textarea spacing for entering a new message
+ - Closes **#20**  - fixed the textarea spacing for entering a new message
 
  - Closes **#7** & **#19** - fixed mobile responsiveness and overlapping
+
+ - Closes **#13** - made an 100-character limit on messages

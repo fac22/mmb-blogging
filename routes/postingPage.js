@@ -21,14 +21,13 @@ function get(request, response) {
   
             <!-- Title -->
             <label for="new-title">Title</label>
-            <input type="text" id="new-title" name="newTitle" placeholder="Your post title" required>
+            <input type="text" id="new-title" name="newTitle" placeholder="Write a unique post title" required>
   
             <!-- New Message -->
             <label for="new-txt">Message</label>
             <textarea
               id="new-xt"
-              name="newTxt"
-              placeholder="What's on your mind?"
+              name="newTxt" maxlength="100" placeholder="What's on your mind? max length 100 characters"
             required></textarea>
   
             <!--Old Message-->

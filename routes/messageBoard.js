@@ -43,6 +43,10 @@ function get(request, response) {
     </head>
     <body>
       <h1> message of the day </h1>
+    
+      <a class="make-block" href="https://mmb-blog.herokuapp.com/"><button>Home</button></a>
+
+      <a class="make-block" href="https://mmb-blog.herokuapp.com/posting"><button>Write a new post</button></a>
       
      <div class="message">
      ${items}
