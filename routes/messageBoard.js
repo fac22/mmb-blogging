@@ -42,7 +42,7 @@ function get(request, response) {
         <link rel="icon" href="./images/to_do_list_icon-icons.com_76974.ico" type="image/ico">
         <title>Best Blogging</title>
     </head>
-    <body class="width-lg center">
+    <body class="center">
       <h1> message of the day </h1>
     
       <a class="make-block" href="https://mmb-blog.herokuapp.com/"><button>Home</button></a>
