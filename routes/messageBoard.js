@@ -39,6 +39,7 @@ function get(request, response) {
 
         <link rel="stylesheet" type="text/css" href="./style.css">
         <link rel="stylesheet" type="text/css" href="./message.css">
+        <link rel="icon" href="./images/to_do_list_icon-icons.com_76974.ico" type="image/ico">
         <title>Best Blogging</title>
     </head>
     <body class="width-lg center">
