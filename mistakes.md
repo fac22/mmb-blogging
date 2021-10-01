@@ -184,6 +184,9 @@ Fix it in `cypress.json`:
 
 ![Cypress problems](./public/images/cypress2.png)
 
+## Fixing issues
 
+ - Closes **#9** & **#15** - deployed to Heroku!
+ - **Closes #20**  - fixed the textarea spacing for entering a new message
 
-Closes #20 
+ - Closes **#7** & **#19** - fixed mobile responsiveness and overlapping

@@ -12,9 +12,9 @@ function get(request, response) {
     items += `
       <div  class="taskMessage">
         <div>
-        <span>Title: ${message.title}</span>
-        <span>Author: ${message.author}</span>
-        <span>${message.text}</span>
+          <div>Title: ${message.title}</div>
+          <div>Author: ${message.author}</div>
+          <div>${message.text}</div>
         </div>
         <form action="/delete-message" method="POST" style="display: inline;" id="button-form">
         
