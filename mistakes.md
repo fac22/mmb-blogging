@@ -183,3 +183,7 @@ Fix it in `cypress.json`:
 
 
 ![Cypress problems](./public/images/cypress2.png)
+
+
+
+Closes #20 

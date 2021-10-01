@@ -29,8 +29,7 @@ function get(request, response) {
               id="new-xt"
               name="newTxt"
               placeholder="What's on your mind?"
-            required>
-            </textarea>
+            required></textarea>
   
             <!--Old Message-->
             <!--<label for="text">Post message</label>
