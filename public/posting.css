@@ -5,6 +5,18 @@ label {
   font-family: "Open Sans";
 }
 form {
+  /* display: flex;
+  flex-direction: column; */
+
   display: flex;
   flex-direction: column;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /* border: aliceblue solid; */
+  /* border: solid; */
+  /* background: yellow; */
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
 }
