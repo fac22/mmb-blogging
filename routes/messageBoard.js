@@ -41,7 +41,7 @@ function get(request, response) {
         <link rel="stylesheet" type="text/css" href="./message.css">
         <title>Best Blogging</title>
     </head>
-    <body>
+    <body class="width-lg center">
       <h1> message of the day </h1>
     
       <a class="make-block" href="https://mmb-blog.herokuapp.com/"><button>Home</button></a>
